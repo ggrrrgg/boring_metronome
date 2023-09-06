@@ -9,11 +9,12 @@
 
     <h1>Boring Metronome</h1>
 
-    <form id="bpmenter">Enter a BPM
-        <input type="integer">
+    <form id="bpmenter">
+        <h2>Enter a BPM</h2>
+        <input type="integer" value="">
     </form>
 
-    <h2 id="metroh2"><b>d-_-b</b></h2>
+    <h1 id="metroh2"><b>d-_-b</b></h1>
 
     
 
@@ -24,9 +25,9 @@
 
         let metroElement = document.getElementById("metroh2");
 
-        let blink_speed = 1000; // every 1000 == 1 second, adjust to suit
+        let blink_speed = convert(); // every 1000 == 1 second, adjust to suit
         let t = setInterval(function () {
-        var ele = document.getElementById('metroh2');
+        let ele = document.getElementById('metroh2');
         ele.style.visibility = (ele.style.visibility == 'hidden' ? '' : 'hidden');
         }, blink_speed);
 
@@ -49,7 +50,7 @@
 
 	</script>
 
-	<script src="./notifier.js"></script>
+	<script src="./converter.js"></script>
     
 </body>
 </html>
