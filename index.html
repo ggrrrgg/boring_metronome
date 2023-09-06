@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Boring Metronome</h1>
+
+    <form id="bpmenter">Enter a BPM
+        <input type="integer">
+    </form>
+
+    <h2 id="metroh2"><b>d-_-b</b></h2>
+
+    
+
+    <script>
+		
+
+        let bpmElement = document.getElementById('bpmenter');
+
+        let metroElement = document.getElementById("metroh2");
+
+        let blink_speed = 1000; // every 1000 == 1 second, adjust to suit
+        let t = setInterval(function () {
+        var ele = document.getElementById('metroh2');
+        ele.style.visibility = (ele.style.visibility == 'hidden' ? '' : 'hidden');
+        }, blink_speed);
+
+		
+		// clockDisplayElement.innerText = Date.now();
+
+		// setTimeout(() => {
+		// 	clockDisplayElement.innerText = new Date(Date.now()).toLocaleTimeString("en-US", { hour12: true });
+		// }, 5000);
+
+		// As soon as the page loads, update the clock
+		clockDisplayElement.innerText = new Date(Date.now()).toLocaleTimeString("en-US", { hour12: true });
+
+		// And then every 1 second after that, update the clock
+		setInterval(() => {
+			clockDisplayElement.innerText = new Date(Date.now()).toLocaleTimeString("en-US", { hour12: true });
+		}, 1000);
+
+		console.log("Log happens immediately")
+
+	</script>
+
+	<script src="./notifier.js"></script>
+    
+</body>
+</html>
