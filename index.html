@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* Add CSS styles for better appearance */
+        #metroh1 {
+            font-size: 100px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
@@ -11,29 +19,38 @@
 
     <form id="bpmenter">
         <h2>Enter a BPM</h2>
-        <input type="integer" value="">
+        <input type="number" value="" id="BPM">
+        <button onclick="startMetronome()">Go!</button>
     </form>
 
-    <h1 id="metroh2"><b>d-_-b</b></h1>
+    <h1 id="metroh1"><b>d-_-b</b></h1>
 
     
 
     <script>
 		
 
-        let bpmElement = document.getElementById('bpmenter');
-
-        let metroElement = document.getElementById("metroh2");
-
-        let blink_speed = convert(); // every 1000 == 1 second, adjust to suit
-        let t = setInterval(function () {
-        let ele = document.getElementById('metroh2');
-        ele.style.visibility = (ele.style.visibility == 'hidden' ? '' : 'hidden');
-        }, blink_speed);
+        function startMetronome() {
+            event.preventDefault();
+            // alert("Button clicked"); 
+            // get userInput from form
+            let bpm = document.getElementById('BPM').value; 
+            // Calculate the interval in milliseconds
+            let blink_speed = 60000 / bpm; 
+            console.log(blink_speed);
+            // make flashy
+            setInterval(function () {
+                // get element to flash
+                let bpmElement = document.getElementById("metroh1");
+                console.log(bpmElement.style.visibility);
+                // thanku stackoverflow
+                bpmElement.style.visibility = (bpmElement.style.visibility == 'hidden' ? '' : 'hidden');
+            }, blink_speed);
+        }
 
 	</script>
 
-	<script src="./converter.js"></script>
+	
     
 </body>
 </html>
