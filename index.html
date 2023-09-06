@@ -31,23 +31,6 @@
         ele.style.visibility = (ele.style.visibility == 'hidden' ? '' : 'hidden');
         }, blink_speed);
 
-		
-		// clockDisplayElement.innerText = Date.now();
-
-		// setTimeout(() => {
-		// 	clockDisplayElement.innerText = new Date(Date.now()).toLocaleTimeString("en-US", { hour12: true });
-		// }, 5000);
-
-		// As soon as the page loads, update the clock
-		clockDisplayElement.innerText = new Date(Date.now()).toLocaleTimeString("en-US", { hour12: true });
-
-		// And then every 1 second after that, update the clock
-		setInterval(() => {
-			clockDisplayElement.innerText = new Date(Date.now()).toLocaleTimeString("en-US", { hour12: true });
-		}, 1000);
-
-		console.log("Log happens immediately")
-
 	</script>
 
 	<script src="./converter.js"></script>
