@@ -21,6 +21,7 @@
         <h2>Enter a BPM</h2>
         <input type="number" value="" id="BPM">
         <button onclick="startMetronome()">Go!</button>
+        <button onclick="stopMetronome">Stop!</button>
     </form>
 
     <h1 id="metroh1"><b>d-_-b</b></h1>
@@ -37,17 +38,25 @@
             let bpm = document.getElementById('BPM').value; 
             // Calculate the interval in milliseconds
             let blink_speed = 60000 / bpm; 
-            console.log(blink_speed);
+            // console.log(blink_speed);
             // make flashy
             setInterval(function () {
                 // get element to flash
                 let bpmElement = document.getElementById("metroh1");
-                console.log(bpmElement.style.visibility);
+                // console.log(bpmElement.style.visibility);
                 // thanku stackoverflow
                 bpmElement.style.visibility = (bpmElement.style.visibility == 'hidden' ? '' : 'hidden');
             }, blink_speed);
         }
 
+
+        function stopMetronome() {
+            event.preventDefault();
+
+            let bpmElement = document.getElementById('metroh1');
+
+            bpmElement.style.visibility != ('hidden');
+        } 
 	</script>
 
 	
