@@ -21,7 +21,8 @@
         <h2>Enter a BPM</h2>
         <input type="number" value="" id="BPM">
         <button onclick="startMetronome()">Go!</button>
-        <button onclick="stopMetronome">Stop!</button>
+        <button onclick="stopMetronome()">Stop!</button>
+        <button id="tapButton" onclick="handleTap()">Tap it!</button>
     </form>
 
     <h1 id="metroh1"><b>d-_-b</b></h1>
@@ -29,7 +30,45 @@
     
 
     <script>
+
+        let tapTimes = []; // Array to store tap times
+
+        function tappaTappa() {
+            event.preventDefault();
+            
+            if (tapTimes.length >= 2) {
+                let totalMilliseconds = 0;
+                for (let i = 1; i < tapTimes.length; i++) {
+                    totalMilliseconds += tapTimes[i] - tapTimes[i - 1];
+                }
+                let averageMilliseconds = totalMilliseconds / (tapTimes.length - 1);
+                let tapBpm = 60000 / averageMilliseconds; // Convert milliseconds to BPM
+                return Math.round(tapBpm);
+            } else {
+                return 0; // Not enough taps for BPM calculation
+            }
+        }
+
+        function handleTap() {
+            event.preventDefault();
+            let now = Date.now();
+            tapTimes.push(now);
+
+            // Limit the number of taps stored (optional)
+            // if (tapTimes.length > 10) {
+            //     tapTimes.shift();
+            // }
+
+            let tapBpm = tappaTappa();
+            if (tapBpm > 0) {
+                document.getElementById('BPM').value = tapBpm;
+
+            document.getElementById('tapButton').addEventListener('click', handleTap);
+        }
+
 		
+
+
 
         function startMetronome() {
             event.preventDefault();
@@ -57,6 +96,7 @@
 
             bpmElement.style.visibility != ('hidden');
         } 
+    }
 	</script>
 
 	
