@@ -21,7 +21,7 @@
         <h2>Enter a BPM</h2>
         <input type="number" value="" id="BPM">
         <button onclick="startMetronome()">Go!</button>
-        <button onclick="stopMetronome()">Stop!</button>
+        <button onclick="stopMetronome">Stop!</button>
         <button id="tapButton" onclick="handleTap()">Tap it!</button>
     </form>
 
@@ -65,7 +65,7 @@
 
             document.getElementById('tapButton').addEventListener('click', handleTap);
         }
-
+    }
 		
 
 
@@ -96,7 +96,7 @@
 
             bpmElement.style.visibility != ('hidden');
         } 
-    }
+        
 	</script>
 
 	
